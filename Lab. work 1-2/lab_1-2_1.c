@@ -13,6 +13,7 @@ int main(){
         }
         floors = pow(4, i) - i;
         result += ceils / floors;
+        ceils = 1;
     }
     printf("Result:\n%lf", result);
     return 0;
