@@ -6,7 +6,7 @@
 #include "generate.h"
 #include "algo.h"
 
-//Создаём прототип функции окна, которая будет определена ниже
+//Г‘Г®Г§Г¤Г ВёГ¬ ГЇГ°Г®ГІГ®ГІГЁГЇ ГґГіГ­ГЄГ¶ГЁГЁ Г®ГЄГ­Г , ГЄГ®ГІГ®Г°Г Гї ГЎГіГ¤ГҐГІ Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­Г  Г­ГЁГ¦ГҐ
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 void report1();
 void report2();
@@ -17,7 +17,7 @@ void report2();
 const int BUTTON_SWITCH_SCRIPT = 100;
 
 
-//объявляем строку-имя программы
+//Г®ГЎГєГїГўГ«ГїГҐГ¬ Г±ГІГ°Г®ГЄГі-ГЁГ¬Гї ГЇГ°Г®ГЈГ°Г Г¬Г¬Г»
 char ProgName[] = "Lab 4";
 int** matrix;
 int** symmetricMatrix;
@@ -30,37 +30,37 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLi
     HWND hWnd;
     MSG lpMsg;
 
-    WNDCLASS w; //создаём экземпляр структуры WNDCLASS
+    WNDCLASS w; //Г±Г®Г§Г¤Г ВёГ¬ ГЅГЄГ§ГҐГ¬ГЇГ«ГїГ° Г±ГІГ°ГіГЄГІГіГ°Г» WNDCLASS
 
-    w.lpszClassName = ProgName; //имя программы - объявлено выше
-    w.hInstance = hInstance; //идентификатор текущего приложения
-    w.lpfnWndProc = WndProc; //указатель на функцию окна
-    w.hCursor = LoadCursor(NULL, IDC_ARROW); //загружаем курсор
-    w.hIcon = 0; //иконки у нас не будет пока
-    w.lpszMenuName = 0; //и меню пока не будет
-    w.hbrBackground = LTGRAY_BRUSH; //WHITE_BRUSH;// цвет фона окна
-    w.style = CS_HREDRAW | CS_VREDRAW; //стиль - перерисовываемое по х и по у
+    w.lpszClassName = ProgName; //ГЁГ¬Гї ГЇГ°Г®ГЈГ°Г Г¬Г¬Г» - Г®ГЎГєГїГўГ«ГҐГ­Г® ГўГ»ГёГҐ
+    w.hInstance = hInstance; //ГЁГ¤ГҐГ­ГІГЁГґГЁГЄГ ГІГ®Г° ГІГҐГЄГіГ№ГҐГЈГ® ГЇГ°ГЁГ«Г®Г¦ГҐГ­ГЁГї
+    w.lpfnWndProc = WndProc; //ГіГЄГ Г§Г ГІГҐГ«Гј Г­Г  ГґГіГ­ГЄГ¶ГЁГѕ Г®ГЄГ­Г 
+    w.hCursor = LoadCursor(NULL, IDC_ARROW); //Г§Г ГЈГ°ГіГ¦Г ГҐГ¬ ГЄГіГ°Г±Г®Г°
+    w.hIcon = 0; //ГЁГЄГ®Г­ГЄГЁ Гі Г­Г Г± Г­ГҐ ГЎГіГ¤ГҐГІ ГЇГ®ГЄГ 
+    w.lpszMenuName = 0; //ГЁ Г¬ГҐГ­Гѕ ГЇГ®ГЄГ  Г­ГҐ ГЎГіГ¤ГҐГІ
+    w.hbrBackground = LTGRAY_BRUSH; //WHITE_BRUSH;// Г¶ГўГҐГІ ГґГ®Г­Г  Г®ГЄГ­Г 
+    w.style = CS_HREDRAW | CS_VREDRAW; //Г±ГІГЁГ«Гј - ГЇГҐГ°ГҐГ°ГЁГ±Г®ГўГ»ГўГ ГҐГ¬Г®ГҐ ГЇГ® Гµ ГЁ ГЇГ® Гі
     w.cbClsExtra = 0;
     w.cbWndExtra = 0;
 
     if (!RegisterClass(&w))
         return 0;
 
-    //Создадим окно в памяти, заполнив аргументы CreateWindow
-    hWnd = CreateWindow(ProgName, //Имя программы
-        L"Lab 4 Ocheretenko", //Заголовок окна
-        WS_OVERLAPPEDWINDOW, //Стиль окна - перекрывающееся
-        0, //положение окна на экране по х
-        0, //положение по у
-        width, //ширина
-        height, //висота
-        (HWND)NULL, //идентификатор родительского окна
-        (HMENU)NULL, //идентификатор меню
-        (HINSTANCE)hInstance, //идентификатор экземпляра программы
-        (HINSTANCE)NULL); //отсутствие дополнительных параметров
+    //Г‘Г®Г§Г¤Г Г¤ГЁГ¬ Г®ГЄГ­Г® Гў ГЇГ Г¬ГїГІГЁ, Г§Г ГЇГ®Г«Г­ГЁГў Г Г°ГЈГіГ¬ГҐГ­ГІГ» CreateWindow
+    hWnd = CreateWindow(ProgName, //Г€Г¬Гї ГЇГ°Г®ГЈГ°Г Г¬Г¬Г»
+        L"Lab 4 Ocheretenko", //Г‡Г ГЈГ®Г«Г®ГўГ®ГЄ Г®ГЄГ­Г 
+        WS_OVERLAPPEDWINDOW, //Г‘ГІГЁГ«Гј Г®ГЄГ­Г  - ГЇГҐГ°ГҐГЄГ°Г»ГўГ ГѕГ№ГҐГҐГ±Гї
+        0, //ГЇГ®Г«Г®Г¦ГҐГ­ГЁГҐ Г®ГЄГ­Г  Г­Г  ГЅГЄГ°Г Г­ГҐ ГЇГ® Гµ
+        0, //ГЇГ®Г«Г®Г¦ГҐГ­ГЁГҐ ГЇГ® Гі
+        width, //ГёГЁГ°ГЁГ­Г 
+        height, //ГўГЁГ±Г®ГІГ 
+        (HWND)NULL, //ГЁГ¤ГҐГ­ГІГЁГґГЁГЄГ ГІГ®Г° Г°Г®Г¤ГЁГІГҐГ«ГјГ±ГЄГ®ГЈГ® Г®ГЄГ­Г 
+        (HMENU)NULL, //ГЁГ¤ГҐГ­ГІГЁГґГЁГЄГ ГІГ®Г° Г¬ГҐГ­Гѕ
+        (HINSTANCE)hInstance, //ГЁГ¤ГҐГ­ГІГЁГґГЁГЄГ ГІГ®Г° ГЅГЄГ§ГҐГ¬ГЇГ«ГїГ°Г  ГЇГ°Г®ГЈГ°Г Г¬Г¬Г»
+        (HINSTANCE)NULL); //Г®ГІГ±ГіГІГ±ГІГўГЁГҐ Г¤Г®ГЇГ®Г«Г­ГЁГІГҐГ«ГјГ­Г»Гµ ГЇГ Г°Г Г¬ГҐГІГ°Г®Гў
     HWND hwndButton = CreateWindow(
         L"BUTTON",  // Predefined class; Unicode assumed 
-        L"Змінити скрипт",      // Button text 
+        L"Г‡Г¬ВіГ­ГЁГІГЁ Г±ГЄГ°ГЁГЇГІ",      // Button text 
         WS_TABSTOP | WS_VISIBLE | WS_CHILD | BS_DEFPUSHBUTTON,  // Styles 
         10,         // x position 
         10,         // y position 
@@ -101,19 +101,19 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLi
 }
 
 int script = 1;
-//Функция окна
+//Г”ГіГ­ГЄГ¶ГЁГї Г®ГЄГ­Г 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT messg,
     WPARAM wParam, LPARAM lParam)
 {
-    HDC hdc; //создаём контекст устройства
-    PAINTSTRUCT ps; //создаём экземпляр структуры графического вывода
+    HDC hdc; //Г±Г®Г§Г¤Г ВёГ¬ ГЄГ®Г­ГІГҐГЄГ±ГІ ГіГ±ГІГ°Г®Г©Г±ГІГўГ 
+    PAINTSTRUCT ps; //Г±Г®Г§Г¤Г ВёГ¬ ГЅГЄГ§ГҐГ¬ГЇГ«ГїГ° Г±ГІГ°ГіГЄГІГіГ°Г» ГЈГ°Г ГґГЁГ·ГҐГ±ГЄГ®ГЈГ® ГўГ»ГўГ®Г¤Г 
 
     float startX = (width) / 4;
     float startY = height / 2;
     float secondX = startX * 3;
-    //Цикл обработки сообщений
+    //Г–ГЁГЄГ« Г®ГЎГ°Г ГЎГ®ГІГЄГЁ Г±Г®Г®ГЎГ№ГҐГ­ГЁГ©
     switch (messg) {
-        //сообщение рисования
+        //Г±Г®Г®ГЎГ№ГҐГ­ГЁГҐ Г°ГЁГ±Г®ГўГ Г­ГЁГї
     case WM_PAINT:
 
         hdc = BeginPaint(hWnd, &ps);
@@ -132,7 +132,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT messg,
             drawOrientedGraph(secondX, startY, hdc, BPen, KPen, condensedMatrix, condensedSize);
         }
 
-        EndPaint(hWnd, &ps);//малювання закінчене
+        EndPaint(hWnd, &ps);//Г¬Г Г«ГѕГўГ Г­Г­Гї Г§Г ГЄВіГ­Г·ГҐГ­ГҐ
         break;
 
     case WM_COMMAND:
@@ -142,11 +142,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT messg,
         break;
 
     case WM_DESTROY:
-        PostQuitMessage(0); //Посылаем сообщение выхода с кодом 0 - нормальное завершение
+        PostQuitMessage(0); //ГЏГ®Г±Г»Г«Г ГҐГ¬ Г±Г®Г®ГЎГ№ГҐГ­ГЁГҐ ГўГ»ГµГ®Г¤Г  Г± ГЄГ®Г¤Г®Г¬ 0 - Г­Г®Г°Г¬Г Г«ГјГ­Г®ГҐ Г§Г ГўГҐГ°ГёГҐГ­ГЁГҐ
         break;
 
     default:
-        return(DefWindowProc(hWnd, messg, wParam, lParam)); //освобождаем очередь приложения от нераспознаных
+        return(DefWindowProc(hWnd, messg, wParam, lParam)); //Г®Г±ГўГ®ГЎГ®Г¦Г¤Г ГҐГ¬ Г®Г·ГҐГ°ГҐГ¤Гј ГЇГ°ГЁГ«Г®Г¦ГҐГ­ГЁГї Г®ГІ Г­ГҐГ°Г Г±ГЇГ®Г§Г­Г Г­Г»Гµ
     }
     return 0;
 }
@@ -176,12 +176,12 @@ void report1()
     SetConsoleOutputCP(1251);
 
     matrix = createMatrix(n, unique_seed, k1(unique_seed));
-    printf("\n\nМатриця суміжності першого графу:\n\n");
+    printf("\n\nГЊГ ГІГ°ГЁГ¶Гї Г±ГіГ¬ВіГ¦Г­Г®Г±ГІВі ГЇГҐГ°ГёГ®ГЈГ® ГЈГ°Г ГґГі:\n\n");
     print2DArray(matrix, n);
 
     int** orientedDegrees = getOrientedDegrees(matrix, n);
-    printf("\n\nСтепені вершин першого графу:\n\n");
-    printf("#\tВходу\tВиходу\n");
+    printf("\n\nГ‘ГІГҐГЇГҐГ­Ві ГўГҐГ°ГёГЁГ­ ГЇГҐГ°ГёГ®ГЈГ® ГЈГ°Г ГґГі:\n\n");
+    printf("#\tГ‚ГµГ®Г¤Гі\tГ‚ГЁГµГ®Г¤Гі\n");
     for (int i = 0; i < n; i++)
     {
         printf("%i\t%i\t\t%i\n", i + 1, orientedDegrees[i][1], orientedDegrees[i][0]);
@@ -189,23 +189,23 @@ void report1()
 
     int orientedRegularityDegree = orientedRegularDegree(orientedDegrees, n);
     if (orientedRegularityDegree == -1)
-        printf("Перший граф не є однорідним.");
+        printf("ГЏГҐГ°ГёГЁГ© ГЈГ°Г Гґ Г­ГҐ Вє Г®Г¤Г­Г®Г°ВіГ¤Г­ГЁГ¬.");
     else
-        printf("Перший граф %i-однорідний", orientedRegularityDegree);
+        printf("ГЏГҐГ°ГёГЁГ© ГЈГ°Г Гґ %i-Г®Г¤Г­Г®Г°ВіГ¤Г­ГЁГ©", orientedRegularityDegree);
 
-    printf("\n\nСписок витоків першого графу:  ");
+    printf("\n\nГ‘ГЇГЁГ±Г®ГЄ ГўГЁГІГ®ГЄВіГў ГЇГҐГ°ГёГ®ГЈГ® ГЈГ°Г ГґГі:  ");
     for (int i = 0; i < n; i++)
     {
         if (orientedDegrees[i][1] == 0)
             printf("%i  ", i + 1);
     }
-    printf("\n\nСписок стоків першого графу:  ");
+    printf("\n\nГ‘ГЇГЁГ±Г®ГЄ Г±ГІГ®ГЄВіГў ГЇГҐГ°ГёГ®ГЈГ® ГЈГ°Г ГґГі:  ");
     for (int i = 0; i < n; i++)
     {
         if (orientedDegrees[i][0] == 0)
             printf("%i  ", i + 1);
     }
-    printf("\n\nСписок ізольованих вершин першого графу:  ");
+    printf("\n\nГ‘ГЇГЁГ±Г®ГЄ ВіГ§Г®Г«ГјГ®ГўГ Г­ГЁГµ ГўГҐГ°ГёГЁГ­ ГЇГҐГ°ГёГ®ГЈГ® ГЈГ°Г ГґГі:  ");
     for (int i = 0; i < n; i++)
     {
         if (orientedDegrees[i][0] == 0 && orientedDegrees[i][1] == 0)
@@ -213,12 +213,12 @@ void report1()
     }
 
     symmetricMatrix = createSymmetricMatrix(matrix, n);
-    printf("\n\nМатриця суміжності неорієнтованого графу:\n\n");
+    printf("\n\nГЊГ ГІГ°ГЁГ¶Гї Г±ГіГ¬ВіГ¦Г­Г®Г±ГІВі Г­ГҐГ®Г°ВіВєГ­ГІГ®ГўГ Г­Г®ГЈГ® ГЈГ°Г ГґГі:\n\n");
     print2DArray(symmetricMatrix, n);
 
     int* nonOrientedDegrees = getNonOrientedDegrees(symmetricMatrix, n);
-    printf("\n\nСтепені вершин неорієнтованого графу:\n\n");
-    printf("#\tСтепінь\n");
+    printf("\n\nГ‘ГІГҐГЇГҐГ­Ві ГўГҐГ°ГёГЁГ­ Г­ГҐГ®Г°ВіВєГ­ГІГ®ГўГ Г­Г®ГЈГ® ГЈГ°Г ГґГі:\n\n");
+    printf("#\tГ‘ГІГҐГЇВіГ­Гј\n");
     for (int i = 0; i < n; i++)
     {
         printf("%i\t%i\n", i + 1, nonOrientedDegrees[i]);
@@ -226,17 +226,17 @@ void report1()
 
     int nonOrientedRegularityDegree = nonOrientedRegularDegree(nonOrientedDegrees, n);
     if (nonOrientedRegularityDegree == -1)
-        printf("Неорієнтований граф не є однорідним.");
+        printf("ГЌГҐГ®Г°ВіВєГ­ГІГ®ГўГ Г­ГЁГ© ГЈГ°Г Гґ Г­ГҐ Вє Г®Г¤Г­Г®Г°ВіГ¤Г­ГЁГ¬.");
     else
-        printf("Неорієнтований граф %i-однорідний", nonOrientedRegularityDegree);
+        printf("ГЌГҐГ®Г°ВіВєГ­ГІГ®ГўГ Г­ГЁГ© ГЈГ°Г Гґ %i-Г®Г¤Г­Г®Г°ВіГ¤Г­ГЁГ©", nonOrientedRegularityDegree);
 
-    printf("\n\nСписок висячих вершин неорієнтованго графу:  ");
+    printf("\n\nГ‘ГЇГЁГ±Г®ГЄ ГўГЁГ±ГїГ·ГЁГµ ГўГҐГ°ГёГЁГ­ Г­ГҐГ®Г°ВіВєГ­ГІГ®ГўГ Г­ГЈГ® ГЈГ°Г ГґГі:  ");
     for (int i = 0; i < n; i++)
     {
         if (nonOrientedDegrees[i] == 1)
             printf("%i  ", i + 1);
     }
-    printf("\n\nСписок ізольованих вершин неорієнтованого графу:  ");
+    printf("\n\nГ‘ГЇГЁГ±Г®ГЄ ВіГ§Г®Г«ГјГ®ГўГ Г­ГЁГµ ГўГҐГ°ГёГЁГ­ Г­ГҐГ®Г°ВіВєГ­ГІГ®ГўГ Г­Г®ГЈГ® ГЈГ°Г ГґГі:  ");
     for (int i = 0; i < n; i++)
     {
         if (orientedDegrees[i] == 0)
@@ -247,12 +247,12 @@ void report1()
 void report2()
 {
     modifiedMatrix = createMatrix(n, unique_seed, k2(unique_seed));
-    printf("\n\nМатриця суміжності модифікованого графу:\n\n\t");
+    printf("\n\nГЊГ ГІГ°ГЁГ¶Гї Г±ГіГ¬ВіГ¦Г­Г®Г±ГІВі Г¬Г®Г¤ГЁГґВіГЄГ®ГўГ Г­Г®ГЈГ® ГЈГ°Г ГґГі:\n\n\t");
     print2DArray(modifiedMatrix, n);
 
     int** modifiedDegrees = getOrientedDegrees(modifiedMatrix, n);
-    printf("\n\nСтепені вершин модифікованого графу:\n\n");
-    printf("#\tВходу\tВиходу\n");
+    printf("\n\nГ‘ГІГҐГЇГҐГ­Ві ГўГҐГ°ГёГЁГ­ Г¬Г®Г¤ГЁГґВіГЄГ®ГўГ Г­Г®ГЈГ® ГЈГ°Г ГґГі:\n\n");
+    printf("#\tГ‚ГµГ®Г¤Гі\tГ‚ГЁГµГ®Г¤Гі\n");
     for (int i = 0; i < n; i++)
     {
         printf("%i\t%i\t\t%i\n", i + 1, modifiedDegrees[i][1], modifiedDegrees[i][0]);
@@ -260,7 +260,7 @@ void report2()
 
     int pathesOfLength2Amount;
     int** pathesOfLength2 = getAllPath2(modifiedMatrix, &pathesOfLength2Amount, 1);
-    printf("\n\nШляхи довжиною 2 у модифікованому графі:\n");
+    printf("\n\nГГ«ГїГµГЁ Г¤Г®ГўГ¦ГЁГ­Г®Гѕ 2 Гі Г¬Г®Г¤ГЁГґВіГЄГ®ГўГ Г­Г®Г¬Гі ГЈГ°Г ГґВі:\n");
     for (int i = 0; i < pathesOfLength2Amount; i++)
     {
         printf("[%i-%i-%i]\t",
@@ -271,7 +271,7 @@ void report2()
 
     int pathesOfLength3Amount;
     int** pathesOfLength3 = getAllPath3(modifiedMatrix, &pathesOfLength3Amount, 1);
-    printf("\n\nШляхи довжиною 2 у модифікованому графі:\n");
+    printf("\n\nГГ«ГїГµГЁ Г¤Г®ГўГ¦ГЁГ­Г®Гѕ 2 Гі Г¬Г®Г¤ГЁГґВіГЄГ®ГўГ Г­Г®Г¬Гі ГЈГ°Г ГґВі:\n");
     for (int i = 0; i < pathesOfLength3Amount; i++)
     {
         printf("[%i-%i-%i-%i]\t",
@@ -282,21 +282,21 @@ void report2()
     }
 
     int** modifiedAccessibility = getAccessibilityMatrix(modifiedMatrix, n);
-    printf("\n\nМатриця досяжності модифікованого графу:\n\n");
+    printf("\n\nГЊГ ГІГ°ГЁГ¶Гї Г¤Г®Г±ГїГ¦Г­Г®Г±ГІВі Г¬Г®Г¤ГЁГґВіГЄГ®ГўГ Г­Г®ГЈГ® ГЈГ°Г ГґГі:\n\n");
     print2DArray(modifiedAccessibility, n);
 
     int** modifiedStrongConnectionMatrix = getStrongConnectionMatrix(modifiedAccessibility, n);
-    printf("\n\nМатриця сильної зв'язності модифікованого графу:\n\n");
+    printf("\n\nГЊГ ГІГ°ГЁГ¶Гї Г±ГЁГ«ГјГ­Г®Вї Г§Гў'ГїГ§Г­Г®Г±ГІВі Г¬Г®Г¤ГЁГґВіГЄГ®ГўГ Г­Г®ГЈГ® ГЈГ°Г ГґГі:\n\n");
     print2DArray(modifiedStrongConnectionMatrix, n);
 
     int componentsAmount;
     int** modifiedGraphStrongConnectionComponents = getComponents(
         modifiedStrongConnectionMatrix,
         &componentsAmount);
-    printf("\n\nСписок компонент сильної зв'язності модифікованого графу:\n");
+    printf("\n\nГ‘ГЇГЁГ±Г®ГЄ ГЄГ®Г¬ГЇГ®Г­ГҐГ­ГІ Г±ГЁГ«ГјГ­Г®Вї Г§Гў'ГїГ§Г­Г®Г±ГІВі Г¬Г®Г¤ГЁГґВіГЄГ®ГўГ Г­Г®ГЈГ® ГЈГ°Г ГґГі:\n");
     for (int i = 0; modifiedGraphStrongConnectionComponents[i][0] != -1; i++)
     {
-        printf("\nКомпонента #%i:   ", i + 1);
+        printf("\nГЉГ®Г¬ГЇГ®Г­ГҐГ­ГІГ  #%i:   ", i + 1);
         for (int j = 0; modifiedGraphStrongConnectionComponents[i][j] != -1; j++)
         {
             printf("%i  ", modifiedGraphStrongConnectionComponents[i][j] + 1);
@@ -308,6 +308,6 @@ void report2()
         componentsAmount,
         modifiedAccessibility);
     condensedSize = componentsAmount;
-    printf("\n\nМатриця суміжності графу конденсації модифікованого графу:\n");
+    printf("\n\nГЊГ ГІГ°ГЁГ¶Гї Г±ГіГ¬ВіГ¦Г­Г®Г±ГІВі ГЈГ°Г ГґГі ГЄГ®Г­Г¤ГҐГ­Г±Г Г¶ВіВї Г¬Г®Г¤ГЁГґВіГЄГ®ГўГ Г­Г®ГЈГ® ГЈГ°Г ГґГі:\n");
     print2DArray(condensedMatrix, componentsAmount);
 }
