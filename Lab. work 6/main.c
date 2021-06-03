@@ -6,7 +6,7 @@
 #include "generate.h"
 #include "traverse.h"
 
-//Создаём прототип функции окна, которая будет определена ниже
+//Г‘Г®Г§Г¤Г ВёГ¬ ГЇГ°Г®ГІГ®ГІГЁГЇ ГґГіГ­ГЄГ¶ГЁГЁ Г®ГЄГ­Г , ГЄГ®ГІГ®Г°Г Гї ГЎГіГ¤ГҐГІ Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­Г  Г­ГЁГ¦ГҐ
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 DWORD WINAPI report(LPVOID lpParam);
 
@@ -19,7 +19,7 @@ typedef struct {
     HWND* hWnd;
 } Params;
 
-//объявляем строку-имя программы
+//Г®ГЎГєГїГўГ«ГїГҐГ¬ Г±ГІГ°Г®ГЄГі-ГЁГ¬Гї ГЇГ°Г®ГЈГ°Г Г¬Г¬Г»
 char ProgName[] = "Lab 6";
 int** dfsMatrix = NULL;
 int* dfsVisited = NULL;
@@ -33,37 +33,37 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLi
     HWND hWnd;
     MSG lpMsg;
 
-    WNDCLASS w; //создаём экземпляр структуры WNDCLASS
+    WNDCLASS w; //Г±Г®Г§Г¤Г ВёГ¬ ГЅГЄГ§ГҐГ¬ГЇГ«ГїГ° Г±ГІГ°ГіГЄГІГіГ°Г» WNDCLASS
 
-    w.lpszClassName = ProgName; //имя программы - объявлено выше
-    w.hInstance = hInstance; //идентификатор текущего приложения
-    w.lpfnWndProc = WndProc; //указатель на функцию окна
-    w.hCursor = LoadCursor(NULL, IDC_ARROW); //загружаем курсор
-    w.hIcon = 0; //иконки у нас не будет пока
-    w.lpszMenuName = 0; //и меню пока не будет
-    w.hbrBackground = LTGRAY_BRUSH; //WHITE_BRUSH;// цвет фона окна
-    w.style = CS_HREDRAW | CS_VREDRAW; //стиль - перерисовываемое по х и по у
+    w.lpszClassName = ProgName; //ГЁГ¬Гї ГЇГ°Г®ГЈГ°Г Г¬Г¬Г» - Г®ГЎГєГїГўГ«ГҐГ­Г® ГўГ»ГёГҐ
+    w.hInstance = hInstance; //ГЁГ¤ГҐГ­ГІГЁГґГЁГЄГ ГІГ®Г° ГІГҐГЄГіГ№ГҐГЈГ® ГЇГ°ГЁГ«Г®Г¦ГҐГ­ГЁГї
+    w.lpfnWndProc = WndProc; //ГіГЄГ Г§Г ГІГҐГ«Гј Г­Г  ГґГіГ­ГЄГ¶ГЁГѕ Г®ГЄГ­Г 
+    w.hCursor = LoadCursor(NULL, IDC_ARROW); //Г§Г ГЈГ°ГіГ¦Г ГҐГ¬ ГЄГіГ°Г±Г®Г°
+    w.hIcon = 0; //ГЁГЄГ®Г­ГЄГЁ Гі Г­Г Г± Г­ГҐ ГЎГіГ¤ГҐГІ ГЇГ®ГЄГ 
+    w.lpszMenuName = 0; //ГЁ Г¬ГҐГ­Гѕ ГЇГ®ГЄГ  Г­ГҐ ГЎГіГ¤ГҐГІ
+    w.hbrBackground = LTGRAY_BRUSH; //WHITE_BRUSH;// Г¶ГўГҐГІ ГґГ®Г­Г  Г®ГЄГ­Г 
+    w.style = CS_HREDRAW | CS_VREDRAW; //Г±ГІГЁГ«Гј - ГЇГҐГ°ГҐГ°ГЁГ±Г®ГўГ»ГўГ ГҐГ¬Г®ГҐ ГЇГ® Гµ ГЁ ГЇГ® Гі
     w.cbClsExtra = 0;
     w.cbWndExtra = 0;
 
     if (!RegisterClass(&w))
         return 0;
 
-    //Создадим окно в памяти, заполнив аргументы CreateWindow
-    hWnd = CreateWindow(ProgName, //Имя программы
-        L"Lab 6 Ocheretenko", //Заголовок окна
-        WS_OVERLAPPEDWINDOW, //Стиль окна - перекрывающееся
-        0, //положение окна на экране по х
-        0, //положение по у
-        width, //ширина
-        height, //висота
-        (HWND)NULL, //идентификатор родительского окна
-        (HMENU)NULL, //идентификатор меню
-        (HINSTANCE)hInstance, //идентификатор экземпляра программы
-        (HINSTANCE)NULL); //отсутствие дополнительных параметров
+    //Г‘Г®Г§Г¤Г Г¤ГЁГ¬ Г®ГЄГ­Г® Гў ГЇГ Г¬ГїГІГЁ, Г§Г ГЇГ®Г«Г­ГЁГў Г Г°ГЈГіГ¬ГҐГ­ГІГ» CreateWindow
+    hWnd = CreateWindow(ProgName, //Г€Г¬Гї ГЇГ°Г®ГЈГ°Г Г¬Г¬Г»
+        L"Lab 6 Ocheretenko", //Г‡Г ГЈГ®Г«Г®ГўГ®ГЄ Г®ГЄГ­Г 
+        WS_OVERLAPPEDWINDOW, //Г‘ГІГЁГ«Гј Г®ГЄГ­Г  - ГЇГҐГ°ГҐГЄГ°Г»ГўГ ГѕГ№ГҐГҐГ±Гї
+        0, //ГЇГ®Г«Г®Г¦ГҐГ­ГЁГҐ Г®ГЄГ­Г  Г­Г  ГЅГЄГ°Г Г­ГҐ ГЇГ® Гµ
+        0, //ГЇГ®Г«Г®Г¦ГҐГ­ГЁГҐ ГЇГ® Гі
+        width, //ГёГЁГ°ГЁГ­Г 
+        height, //ГўГЁГ±Г®ГІГ 
+        (HWND)NULL, //ГЁГ¤ГҐГ­ГІГЁГґГЁГЄГ ГІГ®Г° Г°Г®Г¤ГЁГІГҐГ«ГјГ±ГЄГ®ГЈГ® Г®ГЄГ­Г 
+        (HMENU)NULL, //ГЁГ¤ГҐГ­ГІГЁГґГЁГЄГ ГІГ®Г° Г¬ГҐГ­Гѕ
+        (HINSTANCE)hInstance, //ГЁГ¤ГҐГ­ГІГЁГґГЁГЄГ ГІГ®Г° ГЅГЄГ§ГҐГ¬ГЇГ«ГїГ°Г  ГЇГ°Г®ГЈГ°Г Г¬Г¬Г»
+        (HINSTANCE)NULL); //Г®ГІГ±ГіГІГ±ГІГўГЁГҐ Г¤Г®ГЇГ®Г«Г­ГЁГІГҐГ«ГјГ­Г»Гµ ГЇГ Г°Г Г¬ГҐГІГ°Г®Гў
     HWND hwndButton = CreateWindow(
         L"BUTTON",  // Predefined class; Unicode assumed
-        L"Змінити скрипт",      // Button text
+        L"Г‡Г¬ВіГ­ГЁГІГЁ Г±ГЄГ°ГЁГЇГІ",      // Button text
         WS_TABSTOP | WS_VISIBLE | WS_CHILD | BS_DEFPUSHBUTTON,  // Styles
         10,         // x position
         10,         // y position
@@ -105,19 +105,19 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLi
 }
 
 int script = 1;
-//Функция окна
+//Г”ГіГ­ГЄГ¶ГЁГї Г®ГЄГ­Г 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT messg,
     WPARAM wParam, LPARAM lParam)
 {
-    HDC hdc; //создаём контекст устройства
-    PAINTSTRUCT ps; //создаём экземпляр структуры графического вывода
+    HDC hdc; //Г±Г®Г§Г¤Г ВёГ¬ ГЄГ®Г­ГІГҐГЄГ±ГІ ГіГ±ГІГ°Г®Г©Г±ГІГўГ 
+    PAINTSTRUCT ps; //Г±Г®Г§Г¤Г ВёГ¬ ГЅГЄГ§ГҐГ¬ГЇГ«ГїГ° Г±ГІГ°ГіГЄГІГіГ°Г» ГЈГ°Г ГґГЁГ·ГҐГ±ГЄГ®ГЈГ® ГўГ»ГўГ®Г¤Г 
 
     float startX = (width) / 4;
     float startY = height / 2;
     float secondX = startX * 3;
-    //Цикл обработки сообщений
+    //Г–ГЁГЄГ« Г®ГЎГ°Г ГЎГ®ГІГЄГЁ Г±Г®Г®ГЎГ№ГҐГ­ГЁГ©
     switch (messg) {
-        //сообщение рисования
+        //Г±Г®Г®ГЎГ№ГҐГ­ГЁГҐ Г°ГЁГ±Г®ГўГ Г­ГЁГї
     case WM_PAINT:
 
         hdc = BeginPaint(hWnd, &ps);
@@ -132,7 +132,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT messg,
             drawOrientedGraph(secondX, startY, hdc, BPen, KPen, RPen, dfsTreeMatrix, NULL, n);
 
 
-        EndPaint(hWnd, &ps);//малювання закінчене
+        EndPaint(hWnd, &ps);//Г¬Г Г«ГѕГўГ Г­Г­Гї Г§Г ГЄВіГ­Г·ГҐГ­ГҐ
         break;
 
     case WM_COMMAND:
@@ -142,11 +142,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT messg,
         break;
 
     case WM_DESTROY:
-        PostQuitMessage(0); //Посылаем сообщение выхода с кодом 0 - нормальное завершение
+        PostQuitMessage(0); //ГЏГ®Г±Г»Г«Г ГҐГ¬ Г±Г®Г®ГЎГ№ГҐГ­ГЁГҐ ГўГ»ГµГ®Г¤Г  Г± ГЄГ®Г¤Г®Г¬ 0 - Г­Г®Г°Г¬Г Г«ГјГ­Г®ГҐ Г§Г ГўГҐГ°ГёГҐГ­ГЁГҐ
         break;
 
     default:
-        return(DefWindowProc(hWnd, messg, wParam, lParam)); //освобождаем очередь приложения от нераспознаных
+        return(DefWindowProc(hWnd, messg, wParam, lParam)); //Г®Г±ГўГ®ГЎГ®Г¦Г¤Г ГҐГ¬ Г®Г·ГҐГ°ГҐГ¤Гј ГЇГ°ГЁГ«Г®Г¦ГҐГ­ГЁГї Г®ГІ Г­ГҐГ°Г Г±ГЇГ®Г§Г­Г Г­Г»Гµ
     }
     return 0;
 }
@@ -182,10 +182,10 @@ DWORD WINAPI report(LPVOID lpParam)
     {
         dfsVisited[i] = 0;
     }
-    printf("\n\nМатриця суміжності графу:\n\n");
+    printf("\n\nГЊГ ГІГ°ГЁГ¶Гї Г±ГіГ¬ВіГ¦Г­Г®Г±ГІВі ГЈГ°Г ГґГі:\n\n");
     print2DArray(dfsMatrix, n);
 
-    printf("\nВиконується обхід для створення мінімального кістяку графу. Для переходу до наступного кроку, натисніть будь-яку клавішу. Прогрес буде відображено у графічному вікні");
+    printf("\nГ‚ГЁГЄГ®Г­ГіВєГІГјГ±Гї Г®ГЎГµВіГ¤ Г¤Г«Гї Г±ГІГўГ®Г°ГҐГ­Г­Гї Г¬ВіГ­ВіГ¬Г Г«ГјГ­Г®ГЈГ® ГЄВіГ±ГІГїГЄГі ГЈГ°Г ГґГі. Г„Г«Гї ГЇГҐГ°ГҐГµГ®Г¤Гі Г¤Г® Г­Г Г±ГІГіГЇГ­Г®ГЈГ® ГЄГ°Г®ГЄГі, Г­Г ГІГЁГ±Г­ВіГІГј ГЎГіГ¤Гј-ГїГЄГі ГЄГ«Г ГўВіГёГі. ГЏГ°Г®ГЈГ°ГҐГ± ГЎГіГ¤ГҐ ГўВіГ¤Г®ГЎГ°Г Г¦ГҐГ­Г® Гі ГЈГ°Г ГґВіГ·Г­Г®Г¬Гі ГўВіГЄГ­Ві");
     dfsTreeMatrix = dfs(args->hWnd, dfsVisited, dfsMatrix, n);
-    printf("\nОбхід завершено.\n");
+    printf("\nГЋГЎГµВіГ¤ Г§Г ГўГҐГ°ГёГҐГ­Г®.\n");
 }
