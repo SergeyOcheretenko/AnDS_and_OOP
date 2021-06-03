@@ -100,7 +100,7 @@ void drawOrientedGraph(int posX, int posY, HDC hdc, HPEN pen1, HPEN pen2, HPEN p
                         Polygon(hdc, vertices, sizeof(vertices) / sizeof(vertices[0]));
                     }
                     else {
-                        POINT move; // смещение относительно центра вершины 
+                        POINT move; // Г±Г¬ГҐГ№ГҐГ­ГЁГҐ Г®ГІГ­Г®Г±ГЁГІГҐГ«ГјГ­Г® Г¶ГҐГ­ГІГ°Г  ГўГҐГ°ГёГЁГ­Г» 
                         move.x = (verticeRadius / 2) * cos(PI / 2 - alpha);
                         move.y = (verticeRadius / 2) * sin(PI / 2 - alpha);
                         POINT newFrom = { from.x + move.x, from.y - move.y };
